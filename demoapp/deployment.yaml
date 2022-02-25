@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demoapp
+spec:
+  selector:
+    matchLabels:
+      app: demoapp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: demoapp
+    spec:
+      containers:
+      - name: demoapp
+        image: leod/driver-service:0.0.6
+        ports:
+        - containerPort: 8101
