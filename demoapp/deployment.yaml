@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: demo-driver-service
-          image: "leod/driver-service:0.0.6"
+          image: "leod/driver-service:0.0.4"
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8101
@@ -22,13 +22,13 @@ spec:
             - name: Environment
               value: test
             - name: Service_Version
-              value: 0.0.6
+              value: 0.0.4
             - name: App_Token
               valueFrom:
                 secretKeyRef:
                   name: demo-service-secret
                   key: TEST_TOKEN
-          envFrom:
-            - configMapRef:
-                name: driver-service-configmap
+          #envFrom:
+          #  - configMapRef:
+          #      name: driver-service-configmap
     
