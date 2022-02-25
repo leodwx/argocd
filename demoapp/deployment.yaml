@@ -5,12 +5,12 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: myapp
+      app: demo-app
   replicas: 1
   template:
     metadata:
       labels:
-        app: myapp
+        app: demo-app
     spec:
       containers:
         - name: demo-driver-service
@@ -30,5 +30,5 @@ spec:
                   key: TEST_TOKEN
           envFrom:
             - configMapRef:
-                name: demo-service-configmap
+                name: demo-app-configmap
     

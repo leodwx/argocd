@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: myapp-service
+  name: demoapp-service
 spec:
   selector:
-    app: myapp
+    app: demo-app
   ports:
     - protocol: TCP
       port: 8101
