@@ -28,7 +28,7 @@ spec:
                 secretKeyRef:
                   name: demo-service-secret
                   key: TEST_TOKEN
-          #envFrom:
-          #  - configMapRef:
-          #      name: driver-service-configmap
+          envFrom:
+            - configMapRef:
+                name: demo-app-configmap
     
