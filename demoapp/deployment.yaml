@@ -30,5 +30,5 @@ spec:
                   key: TEST_TOKEN
           envFrom:
             - configMapRef:
-                name: demo-app-configmap
+                name: driver-service-configmap
     
