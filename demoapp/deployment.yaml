@@ -1,19 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: argocd-app
 spec:
   selector:
     matchLabels:
       app: myapp
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
         app: myapp
     spec:
       containers:
-      - name: myapp
-        image: nanajanashia/argocd-app:1.2
-        ports:
-        - containerPort: 8080
+        - name: demo-driver-service
+          image: "leod/driver-service:0.0.6"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8101
+          env:
+            - name: Environment
+              value: test
+            - name: Service_Version
+              value: 0.0.6
+            - name: App_Token
+              valueFrom:
+                secretKeyRef:
+                  name: demo-service-secret
+                  key: TEST_TOKEN
+          envFrom:
+            - configMapRef:
+                name: demo-service-configmap
+    
