@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demoapp
+  name: myapp
 spec:
   selector:
     matchLabels:
-      app: demoapp
-  replicas: 1
+      app: myapp
+  replicas: 2
   template:
     metadata:
       labels:
-        app: demoapp
+        app: myapp
     spec:
       containers:
-      - name: demoapp
-        image: leod/driver-service:0.0.6
+      - name: myapp
+        image: nanajanashia/argocd-app:1.2
         ports:
-        - containerPort: 8101
+        - containerPort: 8080
