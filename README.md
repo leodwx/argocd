@@ -10,3 +10,8 @@ demo: https://www.youtube.com/watch?v=MeU5_k9ssrs
 
 $ kubectl apply -f application.yaml
 
+## get admin password 
+$ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+
+user: admin
+pass: UyClhWZXMs7QXgwy
