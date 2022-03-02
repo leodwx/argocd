@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-python-app
+spec:
+  selector:
+    matchLabels:
+      app: python-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: python-app
+    spec:
+      containers:
+        - name: python-rest-service
+          image: "leod/python-rest:1.0.0"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8050
+          env:
+            - name: Environment
+              value: dev
+    
