@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: python-rest-service
-          image: "leod/python-rest:1.0.31"
+          image: "leod/python-rest:1.0.32"
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8050
